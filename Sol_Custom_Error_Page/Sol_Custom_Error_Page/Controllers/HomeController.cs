@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Sol_Custom_Error_Page.Filters;
 using Sol_Custom_Error_Page.Models;
 
 namespace Sol_Custom_Error_Page.Controllers
@@ -26,11 +27,23 @@ namespace Sol_Custom_Error_Page.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        [HttpGet]
         public IActionResult OnErrorTest()
         {
             return base.BadRequest();
         }
 
+        [HttpGet]
+        public IActionResult OnExceptionHandlingGet()
+        {
+            throw new Exception("Exception in View Details");
+        }
 
+        [HttpPost]
+        [HandleException]
+        public IActionResult OnExceptionHandlingPost()
+        {
+            throw new Exception("Exception in View Details");
+        }
     }
 }

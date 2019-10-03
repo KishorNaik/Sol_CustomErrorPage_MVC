@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Error";
+}
+
+<h1>Error</h1>
+
+<div class="alert alert-danger">
+    <h2>Exception Path</h2>
+    <hr />
+    <p>
+        @ViewBag.ExceptionPath
+    </p>
+</div>
+
+<div class="alert alert-danger">
+    <h2>Exception Message</h2>
+    <hr />
+    <p>
+        @ViewBag.ExceptionMessage
+    </p>
+</div>
+
+<div class="alert alert-danger">
+    <h2>Exception StackTrace</h2>
+    <hr />
+    <p>
+        @ViewBag.ExceptionStackTrace
+    </p>
+</div>
