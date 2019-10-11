@@ -40,7 +40,7 @@ namespace Sol_Custom_Error_Page.Controllers
         }
 
         [HttpPost]
-        [HandleException]
+        //[HandleException]
         public IActionResult OnExceptionHandlingPost()
         {
             throw new Exception("Exception in View Details");

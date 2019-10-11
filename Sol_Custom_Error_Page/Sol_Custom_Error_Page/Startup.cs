@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Sol_Custom_Error_Page.Filters;
 
 namespace Sol_Custom_Error_Page
 {
@@ -31,6 +32,11 @@ namespace Sol_Custom_Error_Page
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc((option) =>
+            {
+                // Set Global Level Exception Handling
+                option.Filters.Add<HandleExceptionAttribute>();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
