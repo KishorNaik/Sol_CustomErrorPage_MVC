@@ -37,13 +37,16 @@ namespace Sol_Custom_Error_Page.Controllers
         public IActionResult OnExceptionHandlingGet()
         {
             throw new Exception("Exception in View Details");
+            //return base.BadRequest();
         }
 
         [HttpPost]
         //[HandleException]
         public IActionResult OnExceptionHandlingPost()
         {
-            throw new Exception("Exception in View Details");
+            //throw new Exception("Exception in View Details");
+
+            return base.Unauthorized();
         }
     }
 }
